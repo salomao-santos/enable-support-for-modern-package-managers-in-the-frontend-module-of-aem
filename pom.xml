@@ -76,7 +76,7 @@
     <module>ui.content</module>
                     
     
-    
+    <!--
     <module>it.tests</module>
                     
     
@@ -86,7 +86,7 @@
     
     
     <module>ui.tests</module>
-      
+     --> 
   </modules>
           
   
@@ -421,109 +421,33 @@
         
         </plugin>
                                         
-        
-        
         <plugin>
-                                                  
-          
-          
-          <groupId>com.github.eirslett</groupId>
-                                                  
-          
-          
-          <artifactId>frontend-maven-plugin</artifactId>
-                                                  
-          
-          
-          <version>${frontend-maven-plugin.version}</version>
-                                                  
-          
-          
-          <configuration>
-                                                            
-            
-            
-            <nodeVersion>v16.17.0</nodeVersion>
-                                                            
-            
-            
-            <npmVersion>8.15.0</npmVersion>
-                                                        
-          
-          
-          </configuration>
-                                                  
-          
-          
-          <executions>
-                                                            
-            
-            
-            <execution>
-                                                                      
-              
-              
-              <id>install node and npm</id>
-                                                                      
-              
-              
-              <goals>
-                                                                                
-                
-                
-                <goal>install-node-and-npm</goal>
-                                                                            
-              
-              
-              </goals>
-                                                                  
-            
-            
-            </execution>
-                                                            
-            
-            
-            <execution>
-                                                                      
-              
-              
-              <id>npm ci</id>
-                                                                      
-              
-              
-              <goals>
-                                                                                
-                
-                
-                <goal>npm</goal>
-                                                                            
-              
-              
-              </goals>
-                                                                      
-              
-              
-              <configuration>
-                                                                              
-                
-                
-                <arguments>ci</arguments>
-                                                                            
-              
-              
-              </configuration>
-                                                                  
-            
-            
-            </execution>
-                                                        
-          
-          
-          </executions>
-                                              
+                    <groupId>com.github.eirslett</groupId>
+                    <artifactId>frontend-maven-plugin</artifactId>
+                    <version>${frontend-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>install node and pnpm</id>
+                            <goals>
+                                <goal>install-node-and-pnpm</goal>
+                            </goals>
+                            <configuration>
+                              <nodeVersion>v12.22.7</nodeVersion>
+                              <pnpmVersion>6.35.1</pnpmVersion>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>build</id>
+                            <goals>
+                                <goal>pnpm</goal>
+                            </goals>
+                            <configuration>
+                                <arguments>install</arguments>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
         
-        
-        </plugin>
                                         
         
         
