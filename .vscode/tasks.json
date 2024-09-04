@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "AEM Author - Build ALL MODULES",
+      "type": "shell",
+      "group": "build",
+      "presentation": {
+        "panel": "shared",
+        "clear": true
+      },
+      "command": "mvn clean install -PautoInstallSinglePackage",
+      "problemMatcher": []
+    },
+    {
+      "label": "AEM Author - Build CORE Module",
+      "type": "shell",
+      "group": "build",
+      "presentation": {
+        "panel": "shared",
+        "clear": true
+      },
+      "command": "cd core && mvn clean install -PautoInstallBundle -X",
+      "problemMatcher": []
+    },
+    {
+      "label": "AEM Author - Build UI.APPS Module",
+      "type": "shell",
+      "group": "build",
+      "presentation": {
+        "panel": "shared",
+        "clear": true
+      },
+      "command": "cd ui.apps && mvn clean install -PautoInstallPackage cd ..",
+      "problemMatcher": []
+    },
+
+    {
+      "label": "AEM Author - Build UI.CONTENT Module",
+      "type": "shell",
+      "group": "build",
+      "presentation": {
+        "panel": "shared",
+        "clear": true
+      },
+      "command": "cd ui.content && mvn clean install -PautoInstallPackage",
+      "problemMatcher": []
+    },
+
+    {
+      "label": "AEM Author - Build CORE and UI.APPS Modules",
+      "type": "shell",
+      "group": "build",
+      "presentation": {
+        "panel": "shared",
+        "clear": true
+      },
+      "command": "cd core && mvn clean install -PautoInstallBundle && cd.. && cd ui.apps && mvn clean install -PautoInstallPackage cd ..",
+      "problemMatcher": []
+    },
+
+    {
+      "label": "AEM Author - Build UI.FRONTEND and UI.APPS Modules",
+      "type": "shell",
+      "group": "build",
+      "presentation": {
+        "panel": "shared",
+        "clear": true
+      },
+      "command": "cd ui.frontend && mvn clean install -PautoInstallPackage && cd .. && cd ui.apps && mvn clean install -PautoInstallPackage && cd ..",
+      "problemMatcher": []
+    }
+  ]
+}
